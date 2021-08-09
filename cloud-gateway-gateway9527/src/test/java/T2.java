@@ -10,6 +10,7 @@ public class T2 {
         System.out.println("hello");
         System.out.println("master");
         System.out.println("hot-fix");
+        System.out.println("github");
         //2021-02-22T15:51:37.485+08:00[Asia/Shanghai]
     }
 }
