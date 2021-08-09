@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.ye.springcloud.dao.PaymentDao">
+    <!--useGeneratedKeys为返回的值为0或1-->
+    <!--注意这里使用别的模块的类的时候，parameterType要改成具体的地址-->
+   <insert id="create" parameterType="com.ye.springcloud.entities.Payment" useGeneratedKeys="true" keyProperty="id">
+        insert into db2021.payment(serial) values(#{serial});
+   </insert>
+    
+    <resultMap id="BaseResultMap" type="com.ye.springcloud.entities.Payment">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <id column="serial" property="serial" jdbcType="VARCHAR"/>
+    </resultMap>
+    
+    <select id="getPaymentById" parameterType="Long" resultMap="BaseResultMap">
+        select * from db2021.payment where id = #{id}
+    </select>
+</mapper>

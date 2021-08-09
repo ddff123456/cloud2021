@@ -1,0 +1,21 @@
+server:
+  port: 81
+
+
+
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      #单机版
+      #defaultZone: http://eureka7001.com:7001/eureka/
+      #集群版
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+
+
+#80订单微服务，也可以更好的保护自己，自己也依样画葫芦进行客户端降级保护
+#开启
+feign:
+  hystrix:
+    enabled: true
