@@ -23,11 +23,16 @@
         </dependency>
 
 
-        <!--包含了sleuth+zipkin-->
+        <!--
+            Sleuth链路监控展现
+            包含了sleuth+zipkin
+        -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
+
+
         <!--eureka-client-->
         <!--这个是eureka-client客户端的依赖，
         相当于cloud-provider-payment8001将注册进EurekaServer成为服务提供者provider

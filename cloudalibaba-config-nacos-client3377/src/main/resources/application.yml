@@ -1,0 +1,5 @@
+spring:
+  profiles:   # 这些是配置文件的名字的后缀
+    active: dev # 表示开发环境
+    #active: test # 表示测试环境
+    #active: info

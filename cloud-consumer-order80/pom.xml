@@ -19,6 +19,16 @@
 
     <dependencies>
 
+        <!--
+          Sleuth链路监控展现
+          包含了sleuth+zipkin
+      -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+
+
         <!--实现解耦-->
         <!--引入自己定义的api通用包，步骤是先clean，然后install成jar报，可以使用Payment来支付Entity-->
         <dependency>

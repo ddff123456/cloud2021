@@ -1,0 +1,36 @@
+server:
+  port: 8401
+
+spring:
+  application:
+    name: cloudalibaba-sentinel-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #Nacos服务注册中心地址
+    sentinel:
+      transport:
+        dashboard: localhost:9998 #配置Sentinel dashboard地址
+        #设置9990端口，加入端口被占用就自动从9990开始依次+1扫描，直到找到未被使用过的端口
+        port: 9990
+      #使用的就是nacos配置中心中叫cloudalibaba-sentinel-service的配置文件，用于sentinel的持久化配置
+      # 思路就是将sentinel前台的配置写在后台
+      datasource: #<---------------------------关注点，添加Nacos数据源配置（用于sentinel的持久化）
+        ds1:
+          nacos:
+            server-addr: localhost:8848
+            dataId: cloudalibaba-sentinel-service
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+feign:
+  sentinel:
+    enabled: true # 激活Sentinel对Feign的支持
+

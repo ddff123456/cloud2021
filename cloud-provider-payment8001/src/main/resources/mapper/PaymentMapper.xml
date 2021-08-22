@@ -17,3 +17,4 @@
         select * from db2021.payment where id = #{id}
     </select>
 </mapper>
+
